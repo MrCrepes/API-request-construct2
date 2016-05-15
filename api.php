@@ -79,6 +79,16 @@
                     $state = $state->fetch();
                     echo $state['state'];
                 }
+            }elseif(strtolower($_GET['name']) == "chaudiere"){
+                if(strtolower($_GET['state']) != "get"){
+                    $req = $bdd->prepare("UPDATE commandes SET state = :state WHERE name = 'chaudiere'");
+                    $req->execute(array(':state' => $_GET['state'])); 
+                    echo '{ <br><div style="text-indent: 15px;">"State": Success</div><div style="text-indent: 15px;">"Action made": State set to '.$_GET['state'].'</div>}';  
+                }else{
+                    $state = $bdd->query("SELECT state FROM commandes WHERE name = 'chaudiere'");
+                    $state = $state->fetch();
+                    echo $state['state'];
+                }
             }else{
                  echo '{ <br><div style="text-indent: 15px;">State: ERROR,</div><br><div style="text-indent: 15px;">Bad argument > <b>NAME</b></div>}';
             }
