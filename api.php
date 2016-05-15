@@ -2,7 +2,7 @@
 /*
 **  Auteur: HUGON Bastien
 **  
-**                                             API V 1.0.3
+**                                             API V 1.0.4
 **                                          Maison Domotique
 **                   
 **
